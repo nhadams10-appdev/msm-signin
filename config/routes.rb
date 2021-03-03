@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   # CREATE
   post("/insert_bookmark", { :controller => "bookmarks", :action => "create" })
+
+  post("/insert_bookmark_from_movie_show", { :controller => "bookmarks", :action => "create_from_movie_show" })
           
   # READ
   get("/bookmarks", { :controller => "bookmarks", :action => "index" })
