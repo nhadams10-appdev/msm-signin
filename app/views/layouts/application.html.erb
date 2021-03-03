@@ -15,34 +15,66 @@
   </head>
 
   <body>
+    <p style="color: green;">
+      <%= notice %>
+    </p>
+
+    <p style="color: red;">
+      <%= alert %>
+    </p>
+
     <ul>
       <li>
-        <a href="/actors">Actors</a>
+        <a href="/directors">
+          Directors
+        </a>
       </li>
 
       <li>
-        <a href="/movies">Movies</a>
+        <a href="/actors">
+          Actors
+        </a>
       </li>
 
       <li>
-        <a href="/directors">Directors</a>
+        <a href="/movies">
+          Movies
+        </a>
       </li>
 
       <li>
-        <a href="/characters">Characters</a>
+        <a href="/characters">
+          Characters
+        </a>
       </li>
 
-      <li>
-        <a href="/user_sign_up">Sign up</a>
-      </li>
+      <% if @current_user == nil %>
+        <li>
+          <a href="/user_sign_up">
+            Sign up
+          </a>
+        </li>
 
-      <li>
-        <a href="/user_sign_in">Sign in</a>
-      </li>
-      
-      <li>
-        <a href="/user_sign_out">Sign out</a>
-      </li>
+        <li>
+          <a href="/user_sign_in">
+            Sign in
+          </a>
+        </li>
+      <% else %>
+        <li>
+          Welcome back, <%= @current_user.first_name %>.
+          
+          <a href="/user_sign_out">            
+            Sign out
+          </a>
+        </li>
+
+        <li>
+          <a href="/bookmarks">
+            My bookmarks
+          </a>
+        </li>
+      <% end %>
     </ul>
 
     <%= yield %>

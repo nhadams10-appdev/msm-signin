@@ -13,4 +13,13 @@
 #  director_id :integer
 #
 class Movie < ApplicationRecord
+  has_many  :characters, dependent: :destroy
+
+  has_many  :bookmarks, dependent: :destroy
+
+  belongs_to :director
+  
+  has_many :actors, through: :characters, source: :actor
+
+  has_many :users, through: :bookmarks, source: :user
 end
